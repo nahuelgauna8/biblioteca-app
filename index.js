@@ -178,6 +178,29 @@ app.put('/devolver/:id', async (req, res) => {
   }
 });
 
+// Obtener historial de préstamos del usuario logueado
+app.get('/prestamos', verificarToken, async (req, res) => {
+  try {
+
+    const result = await pool.query(`
+      SELECT 
+        prestamos.id,
+        libros.titulo,
+        prestamos.fecha_prestamo,
+        prestamos.estado
+      FROM prestamos
+      JOIN libros ON prestamos.id_libro = libros.id
+      WHERE prestamos.id_usuario = $1
+      ORDER BY prestamos.id DESC
+    `, [req.user.id]);
+
+    res.json(result.rows);
+
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
 // -------- USUARIOS --------
 
 // Registrar usuario
