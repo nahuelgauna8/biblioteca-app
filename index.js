@@ -27,11 +27,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Configuración de PostgreSQL
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'biblioteca',
-  password: '1234',
-  port: 5432,
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 // ================= MIDDLEWARE JWT =================
