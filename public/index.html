@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiblioTech | Mi Biblioteca</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="app">
+        <div id="auth-container" class="auth-wrapper">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <span class="logo-icon">📚</span>
+                    <h2 id="auth-title">Bienvenido</h2>
+                    <p id="auth-subtitle">Ingresa tus credenciales para continuar</p>
+                </div>
+                <form id="auth-form">
+                    <div class="input-group" id="name-group" style="display: none;">
+                        <input type="text" id="nombre" placeholder="Nombre completo">
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" required placeholder="Email">
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" required placeholder="Contraseña">
+                    </div>
+                    <button type="submit" id="auth-btn" class="btn-main">Entrar</button>
+                </form>
+                <div class="auth-footer">
+                    <p><span id="toggle-msg">¿Eres nuevo?</span> <a href="#" id="toggle-auth">Crea una cuenta</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="main-container" style="display: none;">
+            <nav class="navbar">
+                <div class="nav-content">
+                    <div class="nav-left">
+                        <button id="menu-btn" class="burger-icon">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </button>
+                        <span class="brand-name">Biblio<b>Tech</b></span>
+                    </div>
+                    <div class="nav-right" style="position: relative;">
+                        <div id="user-badge" class="user-pill">
+                            <span id="nav-user-name">Usuario</span>
+                        </div>
+                        <div id="menu-dropdown" class="menu-popup">
+                            <button id="perfil-nav-btn">👤 Ver Perfil</button>
+                            <button id="logout-btn" style="color: #ef4444;">🚪 Cerrar Sesión</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="content-wrapper">
+                <main id="view-home">
+                    <div class="dashboard-grid">
+                        <aside class="sidebar-form">
+                            <div class="glass-card">
+                                <h3 id="form-title">Gestionar Libro</h3>
+                                <form id="book-form" class="stack-form">
+                                    <input type="hidden" id="book-id">
+                                    <div class="input-field">
+                                        <input type="text" id="titulo" placeholder="Título" required>
+                                    </div>
+                                    <div class="input-field">
+                                        <input type="text" id="autor" placeholder="Autor" required>
+                                    </div>
+                                    <div class="form-row">
+                                        <input type="number" id="stock" placeholder="Stock" required>
+                                        <input type="number" id="id_categoria" placeholder="Cat." required>
+                                    </div>
+                                    <button type="submit" class="btn-success" id="save-book-btn">Guardar Libro</button>
+                                    <button type="button" id="cancel-edit" class="btn-ghost" style="display: none;">Cancelar</button>
+                                </form>
+                            </div>
+                        </aside>
+
+                        <section class="main-content">
+                            <div class="section-header">
+                                <h2>Catálogo</h2>
+                                <div class="search-wrapper">
+                                    <input type="text" id="search-input" placeholder="Buscar libro..." class="modern-search">
+                                </div>
+                            </div>
+                            <div id="books-grid" class="books-grid"></div>
+                        </section>
+                    </div>
+                </main>
+
+                <main id="view-profile" style="display: none;">
+                    <div class="profile-container">
+                        <button id="back-home-btn" class="btn-back">← Volver</button>
+                        <div class="profile-card-large">
+                            <div class="profile-avatar">👤</div>
+                            <h2 id="prof-name">---</h2>
+                            <p id="prof-email">---</p>
+                            <span class="badge">ID: <span id="prof-id">0</span></span>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+</body>
+</html>

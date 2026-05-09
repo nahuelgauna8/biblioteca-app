@@ -1,0 +1,81 @@
+:root {
+    --primary: #4361ee;
+    --primary-hover: #3751d3;
+    --bg: #f8f9fc;
+    --card: #ffffff;
+    --text-main: #2b2d42;
+    --text-muted: #8d99ae;
+    --success: #00b894;
+    --danger: #ef4444;
+    --shadow: 0 10px 25px rgba(0,0,0,0.05);
+    --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg);
+    color: var(--text-main);
+}
+
+/* AUTH */
+.auth-wrapper { height: 100vh; display: flex; align-items: center; justify-content: center; background: #f0f2f5; }
+.auth-card { background: white; padding: 40px; border-radius: 20px; box-shadow: var(--shadow); width: 350px; text-align: center; }
+.input-group { margin-bottom: 15px; }
+.input-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; }
+
+/* NAVBAR */
+.navbar { background: white; padding: 10px 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+.nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.nav-left { display: flex; align-items: center; gap: 15px; }
+.brand-name { font-size: 1.4rem; color: var(--primary); }
+
+.burger-icon { background: none; border: none; cursor: pointer; display: flex; flex-direction: column; gap: 4px; }
+.burger-icon .bar { width: 20px; height: 2px; background: #333; }
+
+.user-pill { background: #edf2ff; padding: 8px 15px; border-radius: 20px; color: var(--primary); font-weight: 600; cursor: pointer; }
+.menu-popup { position: absolute; top: 50px; right: 0; background: white; border-radius: 10px; padding: 10px; display: none; flex-direction: column; box-shadow: var(--shadow); border: 1px solid #eee; width: 160px; }
+.menu-popup button { background: none; border: none; text-align: left; padding: 10px; cursor: pointer; border-radius: 5px; }
+.menu-popup button:hover { background: #f0f2f5; }
+
+/* LAYOUT */
+.content-wrapper { max-width: 1200px; margin: 20px auto; padding: 0 20px; }
+.dashboard-grid { display: grid; grid-template-columns: 300px 1fr; gap: 20px; }
+
+/* FORMULARIO CORREGIDO */
+.glass-card { background: white; padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow); }
+.stack-form { display: flex; flex-direction: column; gap: 15px; width: 100%; }
+.input-field input { width: 100%; padding: 12px; border: 1px solid #eee; border-radius: 10px; }
+
+.form-row { display: flex; gap: 10px; width: 100%; }
+.form-row input { width: 50%; padding: 12px; border: 1px solid #eee; border-radius: 10px; }
+
+/* BOTONES */
+.btn-success { background: var(--success); color: white; border: none; padding: 12px; border-radius: 10px; font-weight: 600; cursor: pointer; }
+.btn-ghost { background: none; border: 1px solid #ddd; padding: 10px; border-radius: 10px; cursor: pointer; }
+
+/* GRID DE LIBROS */
+.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.modern-search { padding: 10px 15px; border-radius: 10px; border: 1px solid #eee; width: 250px; }
+
+.books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
+.book-card { background: white; padding: 15px; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid #f8f9fa; }
+.badge-cat { font-size: 0.7rem; background: #eee; padding: 3px 7px; border-radius: 5px; font-weight: 700; }
+
+.book-footer { margin-top: 15px; padding-top: 10px; border-top: 1px solid #f0f2f5; display: flex; justify-content: space-between; align-items: center; }
+.stock-tag { font-size: 0.8rem; font-weight: 600; color: var(--success); }
+.no-stock { color: var(--danger); }
+
+.btn-action { background: #f0f2f5; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 0.8rem; }
+
+/* TOAST Y PERFIL */
+.toast { position: fixed; bottom: 20px; right: 20px; padding: 15px; border-radius: 10px; color: white; display: none; }
+.profile-card-large { background: white; padding: 30px; border-radius: 20px; text-align: center; box-shadow: var(--shadow); }
+.btn-back { background: none; border: none; color: var(--primary); cursor: pointer; font-weight: 600; margin-bottom: 10px; }
+
+@media (max-width: 850px) {
+    .dashboard-grid { grid-template-columns: 1fr; }
+    .modern-search { width: 100%; }
+}
