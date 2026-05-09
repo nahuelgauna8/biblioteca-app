@@ -95,7 +95,7 @@ async function switchView(view) {
           </p>
 
           ${
-            p.estado === 'prestado'
+            p.estado === 'activo'
             ?
             `
               <button
